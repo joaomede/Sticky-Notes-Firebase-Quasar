@@ -17,7 +17,7 @@
             <div class="text-weight-bold">{{ user.name }}</div>
             <div class="text-weight-bold">{{ user.email }}</div>
 
-            <div v-if="!user.uid">No User</div>
+            <div v-if="user.uid == null">No User</div>
             <div class="text-weight-bold" v-if="user.email == null">none@email.com</div>
           </div>
         </q-img>
