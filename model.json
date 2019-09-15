@@ -1,0 +1,23 @@
+{
+  "app": [
+    {
+      "uid": "userUid",
+      "textColor": "#00ff33",
+      "backgroundColor": "#55ff66",
+      "stickyNotes": [
+        {
+          "idStickyNotes": "idStickyNotes",
+          "content": "content here",
+          "createdAt": "timestamp here"
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "uid": "userUid",
+      "name": "user name",
+      "email": "email@exemple.com"
+    }
+  ]
+}
