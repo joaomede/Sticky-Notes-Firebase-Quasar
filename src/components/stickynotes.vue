@@ -117,6 +117,17 @@ export default {
       this.dialogView = false;
       this.dialogDeleteStickyNote = false;
     },
+    editStickyNote() {
+      this.$databaseSticky
+        .doc(this.stickNotes.idStickyNotes)
+        .update(this.stickNotes)
+        .then(() => {
+          this.$notify("Successfully updated sticky notes", "green");
+        })
+        .catch(() => {
+          this.$notify("Error trying to update Sticky notes", "green");
+        });
+    }
   },
   created() {
     this.init();
