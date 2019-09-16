@@ -25,9 +25,24 @@
         </q-card-section>
 
         <q-card-actions align="right">
-          <q-btn flat label="Delete" color="primary" @click="dialogView = false" />
+          <q-btn flat label="Delete" color="primary" @click="dialogDeleteStickyNote = true" />
           <q-btn flat label="Edit" color="primary" @click="dialogView = false" />
           <q-btn flat label="OK" color="primary" @click="dialogView = false" />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
+
+    <q-dialog v-model="dialogDeleteStickyNote">
+      <q-card>
+        <q-card-section>
+          <div class="text-h6">Do you really want to delete the Sticky Note?</div>
+        </q-card-section>
+
+        <q-card-section> "{{ this.stickNotes.content }}" </q-card-section>
+
+        <q-card-actions align="right">
+          <q-btn flat label="Ok" color="primary" @click="deleteStickyNote()" />
+          <q-btn flat label="Cancel" color="primary" @click="dialogDeleteStickyNote = false" />
         </q-card-actions>
       </q-card>
     </q-dialog>
@@ -46,6 +61,7 @@ export default {
         createdAt: ""
       },
       dialogView: false,
+      dialogDeleteStickyNote: false
     };
   },
   watch: {
@@ -89,8 +105,18 @@ export default {
           this.$notify("Failed to record new note", "red");
         });
     },
-    deleteStickyNote(object) {},
-    editStickyNote() {},
+    deleteStickyNote() {
+      this.$databaseSticky
+        .delete(this.stickNotes.idStickyNotes)
+        .then(() => {
+          this.$notify("Sticky note successfully deleted", "green");
+        })
+        .catch(() => {
+          this.$notify("Error trying to clear sticky note", "red");
+        });
+      this.dialogView = false;
+      this.dialogDeleteStickyNote = false;
+    },
   },
   created() {
     this.init();
