@@ -10,7 +10,7 @@
 
     <q-card class="my-card">
       <q-card-section v-for="item in listStickyNotes" :key="item.idStickyNotes">
-        <q-btn :label="item.content" outline color="purple" @click="showStick(item)"/>
+        <q-btn :label="item.content" outline color="purple" @click="showSticky(item)" />
       </q-card-section>
     </q-card>
 
@@ -73,7 +73,7 @@ export default {
         this.loadingAllStickyNotes();
       }
     },
-    showStick(item){
+    showSticky(item) {
       this.stickNotes = item;
       this.dialogView = true;
     },
