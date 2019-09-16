@@ -14,8 +14,9 @@
 7. A Simple Sticky Notes
 
 ### How to Settings Firebase
-In the path "src / boot / firebase.js" you will find the following information;
-No caminho "src/boot/firebase.js", você vai encontrar as seguintes informações;
+##### In the path "src / boot / firebase.js" you will find the following information;
+
+##### No caminho "src/boot/firebase.js", você vai encontrar as seguintes informações;
 ```
 const Config = {
   apiKey: "apiKey",
