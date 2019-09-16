@@ -103,11 +103,11 @@ export default {
     },
     loadingAllStickyNotes() {
       this.databaseSticky.orderBy("createdAt", "asc").onSnapshot(querySnapshot => {
-          this.listStickyNotes = [];
-          querySnapshot.forEach(doc => {
-            this.listStickyNotes.push(doc.data());
-          });
+        this.listStickyNotes = [];
+        querySnapshot.forEach(doc => {
+          this.listStickyNotes.push(doc.data());
         });
+      });
     },
     showSticky(item){
       this.stickNotes = item;

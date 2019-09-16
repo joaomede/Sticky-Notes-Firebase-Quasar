@@ -73,7 +73,7 @@ module.exports = function(ctx) {
     devServer: {
       // https: true,
       // port: 8080,
-      open: true // opens browser window automatically
+      open: false // opens browser window automatically
     },
 
     // animations: 'all', // --- includes all animations
@@ -87,9 +87,9 @@ module.exports = function(ctx) {
       // workboxPluginMode: 'InjectManifest',
       // workboxOptions: {}, // only for NON InjectManifest
       manifest: {
-        // name: 'Personal Sticky Notes',
-        // short_name: 'Personal Sticky Notes',
-        // description: 'A simple Sticky Notes',
+        name: 'Personal Sticky Notes',
+        short_name: 'Personal Sticky Notes',
+        description: 'A simple Sticky Notes',
         display: "standalone",
         orientation: "portrait",
         background_color: "#ffffff",
