@@ -74,12 +74,7 @@ export default {
       }
     },
     loadingAllStickyNotes() {
-      this.$db
-        .collection("app")
-        .doc(this.user.uid)
-        .collection("stickyNotes")
-        .orderBy("createdAt", "asc")
-        .onSnapshot(querySnapshot => {
+      this.databaseSticky.orderBy("createdAt", "asc").onSnapshot(querySnapshot => {
           this.listStickyNotes = [];
           querySnapshot.forEach(doc => {
             this.listStickyNotes.push(doc.data());
@@ -87,7 +82,7 @@ export default {
         });
     },
     createNewStickyNote() {
-      this.$databaseSticky
+      this.databaseSticky
         .add(this.stickNotes)
         .then(ref => {
           const update = {
@@ -102,8 +97,9 @@ export default {
         });
     },
     deleteStickyNote() {
-      this.$databaseSticky
-        .delete(this.stickNotes.idStickyNotes)
+      this.databaseSticky
+        .doc(this.stickNotes.idStickyNotes)
+        .delete()
         .then(() => {
           this.$notify("Sticky note successfully deleted", "green");
         })
@@ -114,7 +110,7 @@ export default {
       this.dialogDeleteStickyNote = false;
     },
     editStickyNote() {
-      this.$databaseSticky
+      this.databaseSticky
         .doc(this.stickNotes.idStickyNotes)
         .update(this.stickNotes)
         .then(() => {
