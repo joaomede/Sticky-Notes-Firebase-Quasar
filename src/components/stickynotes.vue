@@ -4,13 +4,13 @@
       <q-icon name="fas fa-arrow-left" />
     </q-btn>
 
-    <q-btn round color="orange darken-2" @click.stop="" class="fixed fabCenter">
+    <q-btn round color="orange darken-2" @click.stop="(dialogCreateNewSticky = true), resetForm()" class="fixed fabCenter">
       <q-icon name="add" />
     </q-btn>
 
     <q-card class="my-card">
       <q-card-section v-for="item in listStickyNotes" :key="item.idStickyNotes">
-        <q-btn :label="item.content" outline color="purple" @click="(this.stickNotes = item), (this.dialogView = true)" />
+        <q-btn :label="item.content" outline color="purple" @click="showSticky(item)" />
       </q-card-section>
     </q-card>
 
@@ -26,8 +26,34 @@
 
         <q-card-actions align="right">
           <q-btn flat label="Delete" color="primary" @click="dialogDeleteStickyNote = true" />
-          <q-btn flat label="Edit" color="primary" @click="dialogView = false" />
+          <q-btn flat label="Edit" color="primary" @click="dialogEditSticky = true" />
           <q-btn flat label="OK" color="primary" @click="dialogView = false" />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
+
+    <q-dialog v-model="dialogCreateNewSticky">
+      <q-card>
+        <q-card-section>
+          <div class="text-h6">Create a new sticky note</div>
+        </q-card-section>
+        <q-input filled square v-model="stickNotes.content" hint="Content Here!" />
+        <q-card-actions align="right">
+          <q-btn flat label="Back" color="primary" @click="dialogCreateNewSticky = false" />
+          <q-btn label="Add" color="green" @click="createNewStickyNote()" />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
+
+    <q-dialog v-model="dialogEditSticky">
+      <q-card>
+        <q-card-section>
+          <div class="text-h6">Edit a sticky note</div>
+        </q-card-section>
+        <q-input filled square v-model="stickNotes.content" hint="Edit content here!" />
+        <q-card-actions align="right">
+          <q-btn flat label="Back" color="primary" @click="dialogEditSticky = false" />
+          <q-btn label="Save" color="green" @click="editStickyNote()" />
         </q-card-actions>
       </q-card>
     </q-dialog>
@@ -61,7 +87,9 @@ export default {
         createdAt: ""
       },
       dialogView: false,
-      dialogDeleteStickyNote: false
+      dialogDeleteStickyNote: false,
+      dialogCreateNewSticky: false,
+      dialogEditSticky: false
     };
   },
   watch: {
@@ -81,6 +109,10 @@ export default {
           });
         });
     },
+    showSticky(item){
+      this.stickNotes = item;
+      this.dialogView = true;
+    },
     createNewStickyNote() {
       this.databaseSticky
         .add(this.stickNotes)
@@ -95,6 +127,7 @@ export default {
         .catch(() => {
           this.$notify("Failed to record new note", "red");
         });
+      this.dialogCreateNewSticky = false;
     },
     deleteStickyNote() {
       this.databaseSticky
@@ -119,6 +152,15 @@ export default {
         .catch(() => {
           this.$notify("Error trying to update Sticky notes", "green");
         });
+      this.dialogEditSticky = false;
+      this.dialogView = false;
+    },
+    resetForm() {
+      this.stickNotes = {
+        idStickyNotes: "",
+        content: "",
+        createdAt: ""
+      };
     }
   },
   created() {
