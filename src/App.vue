@@ -1,7 +1,6 @@
 <template>
   <div id="q-app" class="q-pa-md">
     <q-layout view="lHr lpR lFr">
-
       <q-header elevated>
         <q-toolbar class="bg-black text-white">
           <q-btn dense flat round icon="menu" @click="left = !left" />
@@ -31,7 +30,6 @@
               <q-item-section avatar>
                 <q-icon name="dashboard" />
               </q-item-section>
-
               <q-item-section>Home</q-item-section>
             </q-item>
 
@@ -39,15 +37,20 @@
               <q-item-section avatar>
                 <q-icon name="vpn_key" />
               </q-item-section>
-
               <q-item-section>Change Password</q-item-section>
+            </q-item>
+
+            <q-item clickable v-ripple v-if="user.uid != null" to="settings">
+              <q-item-section avatar>
+                <q-icon name="fas fa-cogs" />
+              </q-item-section>
+              <q-item-section>Settings</q-item-section>
             </q-item>
 
             <q-item clickable v-ripple to="about">
               <q-item-section avatar>
                 <q-icon name="question_answer" />
               </q-item-section>
-
               <q-item-section>About</q-item-section>
             </q-item>
           </q-list>
