@@ -4,11 +4,26 @@
   "description": "A simple Sticky Notes",
   "productName": "Personal Sticky Notes",
   "cordovaId": "org.cordova.quasar.app",
-  "author": "João Medeiros",
-  "private": true,
+  "author": "João Medeiros <joaoserj@gmail.com> (https://symbol2.com.br/)",
   "scripts": {
     "test": "echo \"No test specified\" && exit 0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joaomede/Sticky-Notes-Firebase-Quasar.git"
+  },
+  "keywords": [
+    "firebase",
+    "firestore",
+    "vuejs",
+    "vuex",
+    "vue-router",
+    "quasar",
+    "crud",
+    "realtime",
+    "sticky-notes",
+    "simple"
+  ],
   "dependencies": {
     "@quasar/extras": "^1.0.0",
     "firebase": "^6.6.1",
