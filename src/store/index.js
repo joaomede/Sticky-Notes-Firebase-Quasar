@@ -8,7 +8,8 @@ export default function({ ssrContext }) {
   const Store = new Vuex.Store({
     state: {
       user: null,
-      settingsColor: null
+      settingsColor: null,
+      version: null
     },
     getters: {
       getUser: state => {
@@ -16,10 +17,19 @@ export default function({ ssrContext }) {
       },
       getSettingsColor: state => {
         return state.settingsColor;
+      },
+      getVersion: state => {
+        return state.version;
       }
     },
     mutations: {
       setUser(state) {
+        db.collection("version").onSnapshot(querySnapshot => {
+          querySnapshot.forEach(resp => {
+            state.version = resp.data();
+          });
+        });
+
         const cookies = process.env.SERVER ? Cookies.parseSSR(ssrContext) : Cookies; // otherwise we're on client
         const user = cookies.get("user");
 
