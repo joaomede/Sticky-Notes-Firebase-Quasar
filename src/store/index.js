@@ -2,17 +2,20 @@ import Vue from "vue";
 import Vuex from "vuex";
 import { db } from "../boot/firebase";
 import { Cookies } from "quasar";
-import firebase from 'firebase'
 Vue.use(Vuex);
 
-export default function ({ ssrContext }) {
+export default function({ ssrContext }) {
   const Store = new Vuex.Store({
     state: {
-      user: null
+      user: null,
+      settingsColor: null
     },
     getters: {
       getUser: state => {
         return state.user;
+      },
+      getSettingsColor: state => {
+        return state.settingsColor;
       }
     },
     mutations: {
@@ -28,23 +31,35 @@ export default function ({ ssrContext }) {
                 state.user = {
                   uid: user.uid,
                   email: user.email,
-                  name: doc.data().name,
+                  name: doc.data().name
                 };
+                settingsColor();
               });
             });
         } else {
           state.user = {
             uid: null,
             email: null,
-            name: null,
+            name: null
           };
+        }
+        function settingsColor() {
+          db.collection("app")
+            .where("uid", "==", user.uid)
+            .onSnapshot(querySnapshot => {
+              querySnapshot.forEach(doc => {
+                state.settingsColor = {}
+                state.settingsColor.backgroundColor = doc.data().backgroundColor;
+                state.settingsColor.textColor = doc.data().textColor;
+              });
+            });
         }
       }
     },
     actions: {
       setUser({ commit }) {
         commit("setUser");
-      },
+      }
     }
   });
   return Store;
