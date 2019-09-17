@@ -2,10 +2,11 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import routes from "./routes";
 import firebase from "firebase";
+import { Cookies } from "quasar";
 
 Vue.use(VueRouter);
 
-export default function(/* { store, ssrContext } */) {
+export default function (/* { store, ssrContext } */) {
   const Router = new VueRouter({
     scrollBehavior: () => ({ x: 0, y: 0 }),
     routes,
@@ -15,16 +16,24 @@ export default function(/* { store, ssrContext } */) {
   Router.beforeEach((to, from, next) => {
     const auth = to.matched.some(record => record.meta.requerAuth);
 
+    const cookies = process.env.SERVER ? Cookies.parseSSR(ssrContext) : Cookies; // otherwise we're on client
+
+    const user = cookies.get("user");
+
     if (auth) {
-      firebase.auth().onAuthStateChanged(function(user) {
-        if (!user) {
+      if (user != null) {
+        if (user.uid != null) {
+          next();
+        } else {
           next({
             path: "/login"
           });
-        } else {
-          next();
         }
-      });
+      } else {
+        next({
+          path: "/login"
+        });
+      }
     } else {
       next();
     }
