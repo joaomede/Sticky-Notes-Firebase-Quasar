@@ -16,6 +16,13 @@ export default {
       } else {
         return null;
       }
+    },
+    settingsColor() {
+      if (this.$store.getters.getSettingsColor != null) {
+        return this.$store.getters.getSettingsColor;
+      } else {
+        return null;
+      }
     }
   }
 }
