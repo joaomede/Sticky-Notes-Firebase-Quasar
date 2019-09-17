@@ -11,9 +11,9 @@
       Your Sticky Notes!
     </div>
     <q-card class="my-card text-center text-white">
-      <q-card class="my-card">
+      <q-card class="my-card q-gutter-xs row " :style="{'justify-content': 'center'}">
         <div v-for="item in listStickyNotes" :key="item.idStickyNotes" @click="showSticky(item)">
-          <q-card-actions class="text-center" :style="{ border: 'solid', 'justify-content': 'center', backgroundColor: settingsColor.backgroundColor }">
+          <q-card-actions class="text-center col-xs-auto" :style="{ border: 'solid', 'justify-content': 'center', backgroundColor: settingsColor.backgroundColor, 'max-width': '150px', 'height': 'auto' }">
             <div class="text-h6 text-center" :style="{ color: settingsColor.textColor }">{{ item.content }}</div>
           </q-card-actions>
         </div>
