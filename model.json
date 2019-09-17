@@ -4,6 +4,7 @@
       "uid": "userUid",
       "textColor": "#00ff33",
       "backgroundColor": "#55ff66",
+      
       "stickyNotes": [
         {
           "idStickyNotes": "idStickyNotes",
@@ -13,11 +14,15 @@
       ]
     }
   ],
+  "version": {
+    "version": "v1.0.0"
+  },
   "users": [
     {
       "uid": "userUid",
       "name": "user name",
-      "email": "email@exemple.com"
+      "email": "email@exemple.com",
+      "permission": "normal | admin"
     }
   ]
 }
