@@ -1,4 +1,4 @@
-import mixinGlobal from "../mixins/mixinsComputed"
+import mixinsComputed from "../mixins/mixinsComputed";
 export default async ({ Vue }) => {
-  Vue.mixin(mixinGlobal)
-}
+  Vue.mixin(mixinsComputed);
+};

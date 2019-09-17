@@ -59,7 +59,7 @@ export default function({ ssrContext }) {
             .where("uid", "==", user.uid)
             .onSnapshot(querySnapshot => {
               querySnapshot.forEach(doc => {
-                state.settingsColor = {}
+                state.settingsColor = {};
                 state.settingsColor.backgroundColor = doc.data().backgroundColor;
                 state.settingsColor.textColor = doc.data().textColor;
               });
