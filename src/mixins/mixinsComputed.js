@@ -7,6 +7,15 @@ export default {
         return { uid: null, email: null, name: null };
       }
     },
+    permissionAdmin() {
+      if (this.user.uid != null) {
+        if (this.$store.getters.getUser.permission == "admin") {
+          return true;
+        }
+      } else {
+        return false;
+      }
+    },
     databaseSticky() {
       if (this.user.uid != null) {
         return this.$db
