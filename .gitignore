@@ -12,7 +12,7 @@ yarn-debug.log*
 yarn-error.log*
 .firebase
 .firebaserc
-firebase.json
+
 # Editor directories and files
 .idea
 .vscode
