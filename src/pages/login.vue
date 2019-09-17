@@ -92,6 +92,9 @@ export default {
       passwordRules: [v => !!v || "Password is required", v => v.length >= 6 || "Must be longer than 6 digits"]
     };
   },
+  watch: {
+    user: "init"
+  },
   methods: {
     login() {
       this.$firebase
@@ -159,7 +162,15 @@ export default {
         email: null,
         password: null
       };
+    },
+    checkLogin() {
+      if (this.user != null) {
+        this.$router.replace("stickynotes");
+      }
     }
+  },
+  created() {
+    this.checkLogin();
   }
 };
 </script>
