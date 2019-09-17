@@ -32,6 +32,13 @@ export default {
       } else {
         return null;
       }
+    },
+    versionCloud() {
+      if (this.$store.getters.getVersion != null) {
+        return this.$store.getters.getVersion;
+      } else {
+        return null;
+      }
     }
   }
-}
+};
