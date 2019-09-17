@@ -41,6 +41,7 @@ module.exports = function(ctx) {
         'QFabAction',
         "QDialog",
         'QCardSection',
+        'QColor',
         'QCardActions',
         "QIcon",
         "QForm", 
@@ -48,7 +49,8 @@ module.exports = function(ctx) {
         "QList",
         "QInput", 
         "QItem", 
-        "QItemSection", 
+        "QItemSection",
+        'QPopupProxy', 
         "QItemLabel"
       ],
 
