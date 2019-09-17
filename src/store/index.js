@@ -31,7 +31,8 @@ export default function({ ssrContext }) {
                 state.user = {
                   uid: user.uid,
                   email: user.email,
-                  name: doc.data().name
+                  name: doc.data().name,
+                  permission: doc.data().permission
                 };
                 settingsColor();
               });
