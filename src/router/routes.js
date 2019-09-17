@@ -1,12 +1,7 @@
 const routes = [
   {
     path: "/",
-    redirect: "/home"
-  },
-  {
-    path: "/home",
-    name: "Home",
-    component: () => import("../pages/home")
+    redirect: "/login"
   },
   {
     path: "/login",
@@ -25,6 +20,12 @@ const routes = [
     meta: { requerAuth: true }
   },
   {
+    path: "/settings",
+    name: "Settings",
+    component: () => import("../components/settings"),
+    meta: { requerAuth: true }
+  },
+  {
     path: "/stickynotes",
     name: "Stickynotes",
     component: () => import("../components/stickynotes"),
@@ -35,7 +36,7 @@ const routes = [
 if (process.env.MODE !== "ssr") {
   routes.push({
     path: "*",
-    redirect: "/home"
+    redirect: "/login"
   });
 }
 
