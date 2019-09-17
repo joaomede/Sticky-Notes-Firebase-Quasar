@@ -71,15 +71,17 @@
 </template>
 
 <script>
+import mixinsCheckVersion from "./mixins/mixinsVersionCheck";
 export default {
+  mixins: [mixinsCheckVersion],
   name: "App",
   data() {
     return {
       left: false,
-      drawer: null,
-      version: "v1.0.0"
+      drawer: null
     };
   },
+
   methods: {
     logout() {
       this.$firebase.auth().signOut();
