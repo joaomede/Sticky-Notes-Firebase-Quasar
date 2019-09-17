@@ -1,6 +1,6 @@
 {
   "name": "personal-sticky-notes",
-  "version": "0.0.1",
+  "version": "1.37.1",
   "description": "A simple Sticky Notes",
   "productName": "Personal Sticky Notes",
   "cordovaId": "org.cordova.quasar.app",
