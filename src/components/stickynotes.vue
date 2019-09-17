@@ -7,11 +7,17 @@
     <q-btn round color="orange darken-2" @click.stop="(dialogCreateNewSticky = true), resetForm()" class="fixed fabCenter">
       <q-icon name="add" />
     </q-btn>
-
-    <q-card class="my-card">
-      <q-card-section v-for="item in listStickyNotes" :key="item.idStickyNotes">
-        <q-btn :label="item.content" outline color="purple" @click="showSticky(item)" />
-      </q-card-section>
+    <div class="text-h4">
+      Your Sticky Notes!
+    </div>
+    <q-card class="my-card text-center text-white">
+      <q-card class="my-card">
+        <div v-for="item in listStickyNotes" :key="item.idStickyNotes" @click="showSticky(item)">
+          <q-card-actions class="text-center" :style="{ border: 'solid', 'justify-content': 'center', backgroundColor: settingsColor.backgroundColor }">
+            <div class="text-h6 text-center" :style="{ color: settingsColor.textColor }">{{ item.content }}</div>
+          </q-card-actions>
+        </div>
+      </q-card>
     </q-card>
 
     <q-dialog v-model="dialogView">
@@ -109,7 +115,7 @@ export default {
         });
       });
     },
-    showSticky(item){
+    showSticky(item) {
       this.stickNotes = item;
       this.dialogView = true;
     },
