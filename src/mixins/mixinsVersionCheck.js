@@ -1,7 +1,7 @@
 export default {
   data() {
     return {
-      version: "v1.37.1"
+      version: "v1.39.3"
     };
   },
   watch: {
