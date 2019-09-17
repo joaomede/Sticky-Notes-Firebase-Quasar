@@ -108,7 +108,7 @@ export default {
             .doc(resp.user.uid)
             .get()
             .then(doc => {
-              this.$store.dispatch("setUser", doc.data());
+              this.$store.dispatch("setUser");
               this.$notify(`Welcome Back ${doc.data().name}`, "green");
             });
         })
@@ -134,28 +134,50 @@ export default {
         .createUserWithEmailAndPassword(this.userLocal.email, this.userLocal.password)
         .then(resp => {
           this.$notify("Registration successfully Complete", "green");
-          const newUser = {
-            uid: resp.user.uid,
-            name: this.userLocal.name,
-            email: this.userLocal.email,
-            permission: "normal"
-          };
-          this.$db
-            .collection("users")
-            .doc(resp.user.uid)
-            .set(newUser)
-            .then(() => {
-              this.$notify(`Welcome ${this.userLocal.name}`, "green");
-              this.$router.replace("home");
-            })
-            .catch(err => {
-              this.$notify("Error trying to register name, contact administrator", "red");
-            });
+          this.setColorSchemeInit(resp);
         })
         .catch(() => {
           this.$notify("Error trying to register", "red");
         });
       this.dialogUserRegister = false;
+    },
+    setColorSchemeInit(resp) {
+      const colorSchemeDefault = {
+        textColor: "#000000",
+        backgroundColor: "#ffffff",
+        uid: resp.user.uid
+      };
+      this.$db
+        .collection("app")
+        .doc(resp.user.uid)
+        .set(colorSchemeDefault)
+        .then(() => {
+          this.setUserProfile(resp);
+        })
+        .catch(err => {
+          this.$notify("Error trying to register name, contact administrator", "red");
+        });
+    },
+    setUserProfile(resp) {
+      const newUser = {
+        uid: resp.user.uid,
+        name: this.userLocal.name,
+        email: this.userLocal.email,
+        permission: "normal"
+      };
+      this.$db
+        .collection("users")
+        .doc(resp.user.uid)
+        .set(newUser)
+        .then(() => {
+          this.$q.cookies.set("user", resp.user);
+          this.$store.dispatch("setUser");
+          this.$notify(`Welcome ${this.userLocal.name}`, "green");
+          this.$router.replace("home");
+        })
+        .catch(err => {
+          this.$notify("Error trying to register name, contact administrator", "red");
+        });
     },
     resetForm() {
       this.userLocal = {
