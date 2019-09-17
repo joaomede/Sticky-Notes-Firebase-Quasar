@@ -137,7 +137,8 @@ export default {
           const newUser = {
             uid: resp.user.uid,
             name: this.userLocal.name,
-            email: this.userLocal.email
+            email: this.userLocal.email,
+            permission: "normal"
           };
           this.$db
             .collection("users")
