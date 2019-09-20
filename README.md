@@ -1,5 +1,15 @@
 # Personal Sticky Notes
 
+## CRUD
+![CRUD actions](doc/crud.gif "CRUD actions")
+
+## Settings Color
+![Settings Color](doc/settings.gif "Settings Color")
+
+## Versioning on database
+![Settings Color](doc/versionSettings.png "Settings Color")
+
+
 ##### EN
 	Personal Sticky Notes for statement of Firestore and Vuejs technologies
 ##### PT-BR
@@ -14,6 +24,7 @@
 - [x] Realtime Firestore Methods (Socket's)
 - [x] A Simple Sticky Notes
 - [x] Permission "Admin and Normal" on Profiles
+- [x] Versioning on database
 
 ### How to Settings Firebase
 ##### In the path "src / boot / firebase.js" you will find the following information;
