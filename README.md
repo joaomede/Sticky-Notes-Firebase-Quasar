@@ -85,14 +85,6 @@ The app version is in the path "src / mixins / mixinsVersionCheck.js", you need 
   ]
 }
 ```
-
-
-##### EN
-Edit them according to your project created on firebase.com and good studies.
-
-##### PT-BR
-Edite-as de acordo com seu projeto criado no firebase.com e bons estudos
-
 ### How to Install / Como instalar
 	yarn -i | npm install
 
