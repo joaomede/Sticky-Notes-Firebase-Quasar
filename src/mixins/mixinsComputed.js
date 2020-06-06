@@ -1,28 +1,28 @@
 export default {
   computed: {
-    user() {
+    user () {
       if (this.$store.getters.getUser != null) {
-        return this.$store.getters.getUser;
+        return this.$store.getters.getUser
       } else {
-        return { uid: null, email: null, name: null };
+        return { uid: null, email: null, name: null }
       }
     },
-    databaseSticky() {
+    databaseSticky () {
       if (this.user.uid != null) {
         return this.$db
-          .collection("app")
+          .collection('app')
           .doc(this.user.uid)
-          .collection("stickyNotes");
+          .collection('stickyNotes')
       } else {
-        return null;
+        return null
       }
     },
-    settingsColor() {
+    settingsColor () {
       if (this.$store.getters.getSettingsColor != null) {
-        return this.$store.getters.getSettingsColor;
+        return this.$store.getters.getSettingsColor
       } else {
-        return null;
+        return null
       }
     }
   }
-};
+}

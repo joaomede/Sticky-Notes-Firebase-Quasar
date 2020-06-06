@@ -1,4 +1,4 @@
-import mixinsComputed from "../mixins/mixinsComputed";
+import mixinsComputed from '../mixins/mixinsComputed'
 export default async ({ Vue }) => {
-  Vue.mixin(mixinsComputed);
-};
+  Vue.mixin(mixinsComputed)
+}

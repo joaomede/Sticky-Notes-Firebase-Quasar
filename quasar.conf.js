@@ -1,11 +1,11 @@
 // Configuration for your app
 // https://quasar.dev/quasar-cli/quasar-conf-js
 
-module.exports = function(ctx) {
+module.exports = function (ctx) {
   return {
-    boot: ["firebase.js", "notify.js", "mixinsGlobal.js"],
+    boot: ['firebase.js', 'notify.js', 'mixinsGlobal.js'],
 
-    css: ["app.styl"],
+    css: ['app.styl'],
 
     extras: [
       // 'ionicons-v4',
@@ -15,8 +15,8 @@ module.exports = function(ctx) {
       // 'themify',
       // 'roboto-font-latin-ext', // this or either 'roboto-font', NEVER both!
 
-      "roboto-font", // optional, you are not bound to it
-      "material-icons" // optional, you are not bound to it
+      'roboto-font', // optional, you are not bound to it
+      'material-icons' // optional, you are not bound to it
     ],
 
     framework: {
@@ -26,38 +26,38 @@ module.exports = function(ctx) {
       // all: true, // --- includes everything; for dev only!
 
       components: [
-        "QLayout", 
-        "QHeader", 
-        "QDrawer", 
-        "QPageContainer", 
-        "QPage", 
-        "QToolbar",
-        "QScrollArea",
-        "QImg",
-        "QToolbarTitle", 
-        "QFooter",
-        "QBtn",
-        "QFab",
+        'QLayout',
+        'QHeader',
+        'QDrawer',
+        'QPageContainer',
+        'QPage',
+        'QToolbar',
+        'QScrollArea',
+        'QImg',
+        'QToolbarTitle',
+        'QFooter',
+        'QBtn',
+        'QFab',
         'QFabAction',
-        "QDialog",
+        'QDialog',
         'QCardSection',
         'QColor',
         'QCardActions',
-        "QIcon",
-        "QForm", 
-        "QCard",
-        "QList",
-        "QInput", 
-        "QItem", 
-        "QItemSection",
-        'QPopupProxy', 
-        "QItemLabel"
+        'QIcon',
+        'QForm',
+        'QCard',
+        'QList',
+        'QInput',
+        'QItem',
+        'QItemSection',
+        'QPopupProxy',
+        'QItemLabel'
       ],
 
-      directives: ["Ripple"],
+      directives: ['Ripple'],
 
       // Quasar plugins
-      plugins: ["Notify", "ClosePopup", "Cookies"]
+      plugins: ['Notify', 'ClosePopup', 'Cookies']
     },
 
     supportIE: false,
@@ -69,7 +69,7 @@ module.exports = function(ctx) {
       // gzip: true,
       // analyze: true,
       // extractCSS: false,
-      extendWebpack(cfg) {}
+      extendWebpack (cfg) {}
     },
 
     devServer: {
@@ -92,35 +92,35 @@ module.exports = function(ctx) {
         name: 'Personal Sticky Notes',
         short_name: 'Personal Sticky Notes',
         description: 'A simple Sticky Notes',
-        display: "standalone",
-        orientation: "portrait",
-        background_color: "#ffffff",
-        theme_color: "#027be3",
+        display: 'standalone',
+        orientation: 'portrait',
+        background_color: '#ffffff',
+        theme_color: '#027be3',
         icons: [
           {
-            src: "statics/icons/icon-128x128.png",
-            sizes: "128x128",
-            type: "image/png"
+            src: 'statics/icons/icon-128x128.png',
+            sizes: '128x128',
+            type: 'image/png'
           },
           {
-            src: "statics/icons/icon-192x192.png",
-            sizes: "192x192",
-            type: "image/png"
+            src: 'statics/icons/icon-192x192.png',
+            sizes: '192x192',
+            type: 'image/png'
           },
           {
-            src: "statics/icons/icon-256x256.png",
-            sizes: "256x256",
-            type: "image/png"
+            src: 'statics/icons/icon-256x256.png',
+            sizes: '256x256',
+            type: 'image/png'
           },
           {
-            src: "statics/icons/icon-384x384.png",
-            sizes: "384x384",
-            type: "image/png"
+            src: 'statics/icons/icon-384x384.png',
+            sizes: '384x384',
+            type: 'image/png'
           },
           {
-            src: "statics/icons/icon-512x512.png",
-            sizes: "512x512",
-            type: "image/png"
+            src: 'statics/icons/icon-512x512.png',
+            sizes: '512x512',
+            type: 'image/png'
           }
         ]
       }
@@ -134,7 +134,7 @@ module.exports = function(ctx) {
     electron: {
       // bundler: 'builder', // or 'packager'
 
-      extendWebpack(cfg) {
+      extendWebpack (cfg) {
         // do something with Electron main process Webpack cfg
         // chainWebpack also available besides this extendWebpack
       },
@@ -155,5 +155,5 @@ module.exports = function(ctx) {
         // appId: 'personal-sticky-notes'
       }
     }
-  };
-};
+  }
+}
