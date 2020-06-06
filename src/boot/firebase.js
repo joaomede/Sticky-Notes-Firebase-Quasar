@@ -1,14 +1,15 @@
 import firebase from "firebase";
 
 const Config = {
-  apiKey: "apiKey",
-  authDomain: "apiKey.firebaseapp.com",
-  databaseURL: "https://apiKey.firebaseio.com",
-  projectId: "apiKey",
-  storageBucket: "apiKey.appspot.com",
-  messagingSenderId: "apiKey",
-  appId: "1:apiKey"
+  apiKey: process.env.APIKEY,
+  authDomain: process.env.AUTHDOMAIN,
+  databaseURL: process.env.DATABASEURL,
+  projectId: process.env.PROJECTID,
+  storageBucket: process.env.STORAGEBUCKET,
+  messagingSenderId: process.env.MESSAGINGSENDERID,
+  appId: process.env.APPID
 };
+
 firebase.initializeApp(Config);
 
 export const db = firebase.firestore();
