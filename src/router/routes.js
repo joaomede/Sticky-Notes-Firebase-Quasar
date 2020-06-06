@@ -22,13 +22,13 @@ const routes = [
   {
     path: '/settings',
     name: 'Settings',
-    component: () => import('../components/settings'),
+    component: () => import('../pages/settings'),
     meta: { requerAuth: true }
   },
   {
     path: '/stickynotes',
     name: 'Stickynotes',
-    component: () => import('../components/stickynotes'),
+    component: () => import('../pages/stickynotes'),
     meta: { requerAuth: true }
   }
 ]
