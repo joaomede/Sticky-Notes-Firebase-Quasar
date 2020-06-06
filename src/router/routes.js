@@ -20,13 +20,6 @@ const routes = [
     meta: { requerAuth: true }
   },
   {
-    path: "/adminversion",
-    name: "adminversion",
-    component: () => import("../components/adminversion"),
-    meta: { requerAuth: true }
-  },
-
-  {
     path: "/settings",
     name: "Settings",
     component: () => import("../components/settings"),
