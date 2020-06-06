@@ -1,12 +1,13 @@
 {
   "name": "personal-sticky-notes",
-  "version": "1.39.3",
+  "version": "1.0.0",
   "description": "A simple Sticky Notes",
   "productName": "Personal Sticky Notes",
   "cordovaId": "org.cordova.quasar.app",
   "author": "João Medeiros <joaoserj@gmail.com> (https://symbol2.com.br/)",
   "scripts": {
-    "test": "echo \"No test specified\" && exit 0"
+    "test": "echo \"No test specified\" && exit 0",
+    "dev": "quasar dev"
   },
   "repository": {
     "type": "git",
