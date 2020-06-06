@@ -7,15 +7,6 @@ export default {
         return { uid: null, email: null, name: null };
       }
     },
-    permissionAdmin() {
-      if (this.user.uid != null) {
-        if (this.$store.getters.getUser.permission == "admin") {
-          return true;
-        }
-      } else {
-        return false;
-      }
-    },
     databaseSticky() {
       if (this.user.uid != null) {
         return this.$db
@@ -29,13 +20,6 @@ export default {
     settingsColor() {
       if (this.$store.getters.getSettingsColor != null) {
         return this.$store.getters.getSettingsColor;
-      } else {
-        return null;
-      }
-    },
-    versionCloud() {
-      if (this.$store.getters.getVersion != null) {
-        return this.$store.getters.getVersion;
       } else {
         return null;
       }

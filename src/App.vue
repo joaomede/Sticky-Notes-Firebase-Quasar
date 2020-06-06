@@ -40,13 +40,6 @@
               <q-item-section>Change Password</q-item-section>
             </q-item>
 
-            <q-item clickable v-ripple v-if="permissionAdmin" to="adminversion">
-              <q-item-section avatar>
-                <q-icon name="fas fa-cogs" />
-              </q-item-section>
-              <q-item-section>Version Software</q-item-section>
-            </q-item>
-
             <q-item clickable v-ripple v-if="user.uid != null" to="settings">
               <q-item-section avatar>
                 <q-icon name="fas fa-cogs" />

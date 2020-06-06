@@ -47,7 +47,7 @@ export default {
     textColor: "changeColorComputed"
   },
   methods: {
-    init(){
+    init() {
       this.textColor = this.settingsColor.textColor;
       this.backgroundColor = this.settingsColor.backgroundColor;
     },
@@ -68,11 +68,10 @@ export default {
         });
     }
   },
-  mounted () {
+  mounted() {
     this.init();
-  },
+  }
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

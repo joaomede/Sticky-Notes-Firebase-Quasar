@@ -21,7 +21,6 @@
 - [x] CRUD
 - [x] Realtime Firestore Methods (Socket's)
 - [x] A Simple Sticky Notes
-- [x] Permission "Admin and Normal" on Profiles
 
 ### How to Settings Firebase
 
@@ -58,8 +57,7 @@ APPID=1:apiKey
     {
       "uid": "userUid",
       "name": "user name",
-      "email": "email@exemple.com",
-      "permission": "normal | admin"
+      "email": "email@exemple.com"
     }
   ]
 }

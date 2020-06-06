@@ -24,13 +24,7 @@ export default function({ ssrContext }) {
     },
     mutations: {
       setUser(state) {
-        db.collection("version").onSnapshot(querySnapshot => {
-          querySnapshot.forEach(resp => {
-            state.version = resp.data();
-          });
-        });
-
-        const cookies = process.env.SERVER ? Cookies.parseSSR(ssrContext) : Cookies; // otherwise we're on client
+        const cookies = process.env.SERVER ? Cookies.parseSSR(ssrContext) : Cookies;
         const user = cookies.get("user");
 
         if (user != null) {
@@ -41,8 +35,7 @@ export default function({ ssrContext }) {
                 state.user = {
                   uid: user.uid,
                   email: user.email,
-                  name: doc.data().name,
-                  permission: doc.data().permission
+                  name: doc.data().name
                 };
                 settingsColor();
               });
